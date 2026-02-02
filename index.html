@@ -37,33 +37,31 @@
       background: #e6e1ec;
       color: #333;
     }
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #888;
-    }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- LOGO -->
-    <img src="logo-zenith-beauty.png" alt="Zenith Beauty" class="logo">
+    <img src="logo-zenith-beauty.png" class="logo" alt="Zenith Beauty">
 
-    <!-- CTA INSTAGRAM -->
-    <a class="cta" href="https://www.instagram.com/giorgiaborghesee" target="_blank">
+    <a id="instagramLink" class="cta" href="#" target="_blank">
       Seguici su Instagram
     </a>
 
-    <!-- CTA STESSA PAGINA -->
-    <a class="cta secondary" href="">
-      Torna a questa pagina
+    <a id="homeLink" class="cta secondary" href="#">
+      Torna alla home
     </a>
 
-    <footer>
-      © 2026 Zenith Beauty
-    </footer>
-
   </div>
+
+  <script>
+    const instagram = localStorage.getItem("instagramLink") 
+      || "https://www.instagram.com/giorgiaborghesee";
+    const home = localStorage.getItem("homeLink") 
+      || "./";
+
+    document.getElementById("instagramLink").href = instagram;
+    document.getElementById("homeLink").href = home;
+  </script>
 </body>
 </html>

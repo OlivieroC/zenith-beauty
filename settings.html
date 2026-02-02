@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zenith Beauty – Impostazioni</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f4f8;
+      padding: 24px;
+    }
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+    }
+    button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 14px;
+      background: #b79bd6;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Impostazioni link</h2>
+
+    <label>Link Instagram</label>
+    <input id="instagramInput" type="text" placeholder="https://www.instagram.com/..." />
+
+    <label>Link Home</label>
+    <input id="homeInput" type="text" placeholder="./" />
+
+    <button onclick="saveLinks()">Salva</button>
+  </div>
+
+  <script>
+    document.getElementById("instagramInput").value =
+      localStorage.getItem("instagramLink") || "";
+
+    document.getElementById("homeInput").value =
+      localStorage.getItem("homeLink") || "./";
+
+    function saveLinks() {
+      localStorage.setItem(
+        "instagramLink",
+        document.getElementById("instagramInput").value
+      );
+      localStorage.setItem(
+        "homeLink",
+        document.getElementById("homeInput").value
+      );
+      alert("Link salvati");
+    }
+  </script>
+
+</body>
+</html>
